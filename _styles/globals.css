@@ -29,7 +29,7 @@
   /* Breakpoints (preserve camelCase) */
   --breakpoint-phone: 425px;
   --breakpoint-tablet: 800px;
-  --breakpoint-desktop: 1450px;
+  --breakpoint-desktop: 1280px;
 }
 
 @layer components {

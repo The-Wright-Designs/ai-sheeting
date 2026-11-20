@@ -4,28 +4,16 @@
     "url": "/"
   },
   {
+    "title": "Services",
+    "url": "/#services"
+  },
+  {
     "title": "About Us",
     "url": "/#about-us"
   },
   {
-    "title": "Services",
-    "url": "/services"
-  },
-  {
-    "title": "Gallery",
-    "url": "/#gallery"
-  },
-  {
     "title": "Projects",
     "url": "/projects"
-  },
-  {
-    "title": "FAQs",
-    "url": "/faqs"
-  },
-  {
-    "title": "Contact",
-    "url": "/#contact"
   },
   {
     "title": "Get A Free Roof Inspection",

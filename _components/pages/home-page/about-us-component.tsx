@@ -1,5 +1,6 @@
-import ImageContainer from "@/_components/utils/image-container";
-import Button from "@/_components/button";
+import Image from "next/image";
+
+import ButtonLink from "@/_components/ui/buttons/button-link";
 
 import pageData from "@/_data/page-data.json";
 
@@ -15,25 +16,24 @@ const AboutUs = ({ cssClasses }: Props) => {
   return (
     <article className={`flex flex-col gap-14 ${cssClasses}`}>
       <h2 className="tabletLarge:text-left">About Us</h2>
-      <ImageContainer
+      <Image
         src="/images/DSC03266.jpg"
         alt="A&I Sheeting - About Us"
-        desktopWidth={1000}
-        cssClasses="h-[250px] tablet:h-[300px] tabletLarge:h-[230px] object-cover"
-        phoneWidth={400}
-        tabletWidth={1000}
+        width={1000}
+        height={1250}
+        className="h-[250px] tablet:h-[300px] tabletLarge:h-[230px] object-cover"
       />
       <div className=" flex flex-col gap-4">
         {aboutUs.map((item, index) => (
           <p key={index}>{item}</p>
         ))}
       </div>
-      <Button
-        url="/projects"
+      <ButtonLink
+        href="/projects"
         cssClasses="place-self-center tabletLarge:place-self-start"
       >
         View Our Projects
-      </Button>
+      </ButtonLink>
     </article>
   );
 };

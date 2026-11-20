@@ -1,7 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
-
-import ImageContainer from "@/_components/utils/image-container";
 
 import pageData from "@/_data/page-data.json";
 
@@ -46,14 +45,13 @@ const Services = () => {
               ))}
             </ul>
           </article>
-          <ImageContainer
+          <Image
             src="/images/projects/118/DJI_0496.jpg"
             alt="A&I Sheeting - State of the Art Technologies"
-            desktopWidth={1200}
-            cssClasses="h-[250px] tablet:h-[300px] tabletLarge:h-full object-cover my-10 tabletLarge:m-0"
-            phoneWidth={425}
-            tabletWidth={800}
-            eager
+            width={1200}
+            height={1500}
+            className="h-[250px] tablet:h-[300px] tabletLarge:h-full object-cover my-10 tabletLarge:m-0"
+            loading="eager"
           />
           <p className="col-span-2">{technologies.paragraph2}</p>
         </div>
@@ -71,13 +69,12 @@ const Services = () => {
               ))}
             </ul>
           </article>
-          <ImageContainer
+          <Image
             src="/images/projects/brackenfell-jt-ross-ct/IMG_2162.jpg"
             alt="A&I Sheeting - Product/Service Guide"
-            desktopWidth={1200}
-            cssClasses="h-[250px] tablet:h-[300px] tabletLarge:h-full object-cover mt-10 tabletLarge:m-0"
-            phoneWidth={425}
-            tabletWidth={800}
+            width={1200}
+            height={1500}
+            className="h-[250px] tablet:h-[300px] tabletLarge:h-full object-cover mt-10 tabletLarge:m-0"
           />
         </div>
       </main>
@@ -98,12 +95,12 @@ const Services = () => {
             ))}
           </ul>
         </article>
-        <ImageContainer
+        <Image
           src="/images/projects/diesel-road/DJI_0636.jpg"
           alt="A&I Sheeting - Articles"
-          desktopWidth={1200}
-          cssClasses="hidden tablet:block tablet:h-[300px] object-cover my-10 tablet:m-0"
-          tabletWidth={800}
+          width={1200}
+          height={1500}
+          className="hidden tablet:block tablet:h-[300px] object-cover my-10 tablet:m-0"
         />
       </div>
     </>

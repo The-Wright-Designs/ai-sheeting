@@ -1,24 +1,14 @@
-"use client";
-
-import { useGlobalContext } from "@/_components/utils/global-context";
-import ImageContainer from "@/_components/utils/image-container";
-
-import classNames from "classnames";
+import Image from "next/image";
 
 const ClientSideImageComponent = () => {
-  const { showName, showMessage } = useGlobalContext();
   return (
-    <ImageContainer
+    <Image
       src="/images/projects/jt-pics/DJI_0645.jpg"
       alt="A&I Sheeting - Free Roof Inspection Quote"
-      desktopWidth={700}
-      phoneWidth={400}
-      tabletWidth={750}
-      cssClasses={classNames("object-cover h-[300px] w-full", {
-        "tabletLarge:h-[250px]": showName && !showMessage,
-        "tabletLarge:hidden": showMessage && showMessage,
-      })}
-      eager
+      width={700}
+      height={875}
+      className="object-cover h-[300px] w-full"
+      loading="eager"
     />
   );
 };

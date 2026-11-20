@@ -2,12 +2,11 @@ import { ReactNode } from "react";
 import { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 
-import Header from "@/_components/navigation/header";
+import Header from "@/_components/navigation/header-component";
 
 import "@/_styles/globals.css";
-import Footer from "@/_components/navigation/footer";
+import Footer from "@/_components/navigation/footer-component";
 import RecaptchaProvider from "@/_components/utils/recaptcha-provider";
-import { GlobalContextProvider } from "@/_components/utils/global-context";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -45,7 +44,7 @@ export default function RootLayout({ children }: Props) {
         <Header />
         <div className="mx-5 max-w-[1400px] tabletLarge:mx-10 desktop:mx-auto">
           <RecaptchaProvider>
-            <GlobalContextProvider>{children}</GlobalContextProvider>
+            {children}
           </RecaptchaProvider>
         </div>
         <Footer />

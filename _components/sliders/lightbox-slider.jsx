@@ -3,8 +3,6 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import ImageContainer from "../utils/image-container";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import classNames from "classnames";
@@ -54,13 +52,12 @@ const LightboxSlider = ({ imageList, cssClasses }) => {
         >
           {imageList.map((item, index) => (
             <SwiperSlide key={index} className="h-[80vh] flex">
-              <ImageContainer
+              <Image
                 src={item}
                 alt={`A&I Sheeting - Gallery image ${index + 1}`}
-                desktopWidth={1200}
-                pictureCssClasses="object-cover place-self-center"
-                phoneWidth={425}
-                tabletWidth={800}
+                width={1200}
+                height={1500}
+                className="object-cover place-self-center"
               />
             </SwiperSlide>
           ))}
@@ -78,17 +75,16 @@ const LightboxSlider = ({ imageList, cssClasses }) => {
       >
         {imageList.map((item, index) => (
           <SwiperSlide key={index} className="h-full w-full">
-            <ImageContainer
+            <Image
               src={item}
               alt={`A&I Sheeting - Gallery image ${index + 1}`}
-              desktopWidth={900}
-              cssClasses="object-cover h-full w-full cursor-pointer"
+              width={900}
+              height={1125}
+              className="object-cover h-full w-full cursor-pointer"
               onClick={() => {
                 lightboxSwiper?.slideTo(index);
                 setToggleLightbox(true);
               }}
-              phoneWidth={425}
-              tabletWidth={800}
             />
           </SwiperSlide>
         ))}

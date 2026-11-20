@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 import ButtonType from "../ui/buttons/button-type";
-import { useGlobalContext } from "../utils/global-context";
-import ImageContainer from "../utils/image-container";
 import { sendEmail } from "@/_actions/send-email-actions";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
@@ -16,8 +15,8 @@ interface Props {
 }
 
 const ContactForm = ({ cssClasses, freeQuote }: Props) => {
-  const { showName, showMessage, setShowName, setShowMessage } =
-    useGlobalContext();
+  const [showName, setShowName] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
   const [showEmailSubmitted, setShowEmailSubmitted] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -82,7 +81,7 @@ const ContactForm = ({ cssClasses, freeQuote }: Props) => {
                 <ButtonType
                   type="button"
                   onClick={() => setShowName(true)}
-                  cssClasses="tablet:w-[135px] tablet:justify-between"
+                  cssClasses="tablet:w-[135px]"
                 >
                   Next
                 </ButtonType>
@@ -106,7 +105,7 @@ const ContactForm = ({ cssClasses, freeQuote }: Props) => {
               <ButtonType
                 type="button"
                 onClick={() => setShowMessage(true)}
-                cssClasses="tablet:w-[135px] tablet:justify-between"
+                cssClasses="tablet:w-[135px]"
               >
                 Next
               </ButtonType>
@@ -127,7 +126,7 @@ const ContactForm = ({ cssClasses, freeQuote }: Props) => {
                   ></textarea>
                 </div>
                 {errorMessage && <p className="text-white">{errorMessage}</p>}
-                <ButtonType cssClasses="tablet:w-[150px] tablet:justify-between">
+                <ButtonType cssClasses="tablet:w-[150px]">
                   Submit
                 </ButtonType>
               </>
@@ -144,12 +143,12 @@ const ContactForm = ({ cssClasses, freeQuote }: Props) => {
           </div>
         )}
       </section>
-      <ImageContainer
+      <Image
         src="/images/projects/old-website/20180720_113017.jpg"
         alt="A&I Sheeting - Contact Us"
-        desktopWidth={700}
-        tabletWidth={50}
-        cssClasses={classNames(
+        width={700}
+        height={875}
+        className={classNames(
           `object-cover h-[450px] w-full ${
             freeQuote ? "hidden" : "hidden tabletLarge:block"
           }`,

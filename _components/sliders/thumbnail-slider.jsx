@@ -1,11 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import classNames from "classnames";
-
-import ImageContainer from "../utils/image-container";
 
 import "swiper/css";
 
@@ -31,11 +30,12 @@ const ThumbnailSlider = ({ imageList, cssClasses }) => {
       >
         {imageList.map((item, index) => (
           <SwiperSlide key={index} className="h-full w-full">
-            <ImageContainer
+            <Image
               src={item}
               alt={`A&I Sheeting - Gallery image ${index + 1}`}
-              desktopWidth={1400}
-              cssClasses="object-cover h-full w-full"
+              width={1400}
+              height={1750}
+              className="object-cover h-full w-full"
             />
           </SwiperSlide>
         ))}
@@ -51,11 +51,12 @@ const ThumbnailSlider = ({ imageList, cssClasses }) => {
         {imageList.map((item, index) => (
           <SwiperSlide key={index} className="h-[110px] !w-[190px]">
             <div className="w-full bg-white h-full flex justify-center overflow-hidden">
-              <ImageContainer
+              <Image
                 src={item}
                 alt={`A&I Sheeting - Gallery thumbnail image ${index + 1}`}
-                desktopWidth={200}
-                cssClasses={classNames(
+                width={200}
+                height={250}
+                className={classNames(
                   "object-cover h-full w-full cursor-pointer px-1 pt-2 desktop:hover:scale-95 duration-300 ease-in-out",
                   { "opacity-60": index !== activeIndex }
                 )}

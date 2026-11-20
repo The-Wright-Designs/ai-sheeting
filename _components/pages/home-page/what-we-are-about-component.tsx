@@ -2,8 +2,6 @@ import Image from "next/image";
 
 import classNames from "classnames";
 
-import ImageContainer from "@/_components/utils/image-container";
-
 import pageData from "@/_data/page-data.json";
 
 interface Props {
@@ -16,15 +14,17 @@ const {
 
 const WhatWeAreAbout = ({ cssClasses }: Props) => {
   return (
-    <article className={`flex flex-col gap-14 ${cssClasses}`}>
+    <article
+      id="services"
+      className={`flex flex-col gap-14 scroll-mt-32 ${cssClasses}`}
+    >
       <h2 className="tabletLarge:text-left">What We&apos;re About</h2>
-      <ImageContainer
+      <Image
         src="/images/projects/avenge-2/DJI_0701.jpg"
         alt="A&I Sheeting - What we're about"
-        desktopWidth={800}
-        cssClasses="h-[230px] object-cover"
-        pictureCssClasses="hidden tabletLarge:block"
-        tabletWidth={50}
+        width={800}
+        height={1000}
+        className="h-[230px] object-cover hidden tabletLarge:block"
       />
       <ul className="flex flex-wrap gap-y-14 gap-x-8 justify-center mx-auto tablet:grid grid-cols-4 tabletLarge:gap-y-10 tabletLarge:mx-0 tabletLarge:grid-cols-3 tabletLarge:gap-x-4 desktop:grid-cols-24 desktop:place-items-start">
         {whatWeAreAbout.map(({ iconUrl, title }, index) => (

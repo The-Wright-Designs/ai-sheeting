@@ -1,4 +1,5 @@
-import ImageContainer from "@/_components/utils/image-container";
+import Image from "next/image";
+
 
 import pageData from "@/_data/page-data.json";
 
@@ -20,14 +21,13 @@ const SloganStamp = ({ cssClasses }: Props) => {
         {slogan}
         <span className="font-[600] text-[40px] pl-1 leading-7">&rdquo;</span>
       </h3>
-      <ImageContainer
+      <Image
         src="/images/Since-1976-stamp.png"
         alt="A&I Sheeting since 1976"
-        desktopWidth={212}
-        cssClasses="rotate-[-4deg] drop-shadow-md tabletLarge:w-[163px] h-auto"
-        phoneWidth={250}
-        tabletWidth={250}
-        eager
+        width={212}
+        height={265}
+        className="rotate-[-4deg] drop-shadow-md tabletLarge:w-[163px] h-auto"
+        loading="eager"
       />
     </section>
   );

@@ -1,8 +1,14 @@
 "use client";
 
 import { useFormStatus } from "react-dom";
+import { ChevronRight } from "lucide-react";
 import { ButtonProps } from "@/_types/button-types";
-import { buttonStyles } from "@/_styles/button-styles";
+import {
+  buttonFaceStyles,
+  buttonIconColor,
+  buttonShadowStyles,
+  buttonStyles,
+} from "@/_styles/button-styles";
 
 const ButtonType = ({
   children,
@@ -21,17 +27,23 @@ const ButtonType = ({
       type={type}
       onClick={onClick}
       aria-label={ariaLabel}
-      className={buttonStyles(cssClasses, disabled, pending, primaryButton)}
+      className={buttonStyles(cssClasses, disabled, pending)}
       disabled={disabled || pending}
       title={title}
     >
-      {pending && type === "submit" ? (
-        <div className="flex items-center justify-center">
-          <div className="spinner"></div>
-        </div>
-      ) : (
-        <>{children}</>
-      )}
+      <span className={buttonShadowStyles(primaryButton)} />
+      <span className={buttonFaceStyles(disabled, pending, primaryButton)}>
+        {pending && type === "submit" ? (
+          <span className="flex flex-1 items-center justify-center">
+            <span className="spinner"></span>
+          </span>
+        ) : (
+          <>
+            <span className="flex-1 text-center">{children}</span>
+            <ChevronRight size={16} color={buttonIconColor(primaryButton)} />
+          </>
+        )}
+      </span>
     </button>
   );
 };

@@ -1,7 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
-
-import ImageContainer from "@/_components/utils/image-container";
 
 import pageData from "@/_data/page-data.json";
 
@@ -42,12 +41,13 @@ const Faqs = () => {
             </li>
           ))}
         </ul>
-        <ImageContainer
+        <Image
           src="/images/DSC03266.jpg"
           alt="A&I Sheeting - FAQs"
-          desktopWidth={800}
-          cssClasses="h-full object-cover hidden tabletLarge:block"
-          eager
+          width={800}
+          height={1000}
+          className="h-full object-cover hidden tabletLarge:block"
+          loading="eager"
         />
         <hr className="text-black my-10 tabletLarge:hidden" />
         <ul className="list-none m-0 grid gap-10 tabletLarge:col-span-2">

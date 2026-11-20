@@ -1,12 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Controller } from "swiper/modules";
 import classNames from "classnames";
-
-import ImageContainer from "../utils/image-container";
 
 import "swiper/css";
 
@@ -28,14 +27,13 @@ const ProjectsSlider = ({ sliderData, cssClasses }) => {
       >
         {sliderData.map(({ imageUrl }, index) => (
           <SwiperSlide key={index} className="w-full">
-            <ImageContainer
+            <Image
               src={imageUrl}
               alt={`A&I Sheeting - Project image ${index + 1}`}
-              desktopWidth={800}
-              cssClasses="object-cover w-full h-[275px] phone:h-[300px] tablet:h-[375px] desktop:h-[450px]"
-              eager={index < 1}
-              phoneWidth={425}
-              tabletWidth={800}
+              width={800}
+              height={1000}
+              className="object-cover w-full h-[275px] phone:h-[300px] tablet:h-[375px] desktop:h-[450px]"
+              loading={index < 1 ? "eager" : "lazy"}
             />
           </SwiperSlide>
         ))}
