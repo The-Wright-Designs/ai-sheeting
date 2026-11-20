@@ -1,17 +1,17 @@
 import { lazy, Suspense } from "react";
 import { Metadata } from "next";
 
-import AboutUs from "@/app/_components/pages/home-page/about-us";
-import ContactInfo from "@/app/_components/contact/contact-info";
-import Gallery from "@/app/_components/pages/home-page/gallery";
-import SloganStamp from "@/app/_components/pages/home-page/slogan-stamp";
-import VideoHero from "@/app/_components/pages/home-page/video-hero";
-import WhatWeAreAbout from "@/app/_components/pages/home-page/what-we-are-about";
-import ImageContainer from "@/app/_components/utils/image-container";
-import ContactForm from "@/app/_components/contact/contact-form";
+import AboutUs from "@/_components/pages/home-page/about-us";
+import ContactInfo from "@/_components/contact/contact-info";
+import Gallery from "@/_components/pages/home-page/gallery";
+import SloganStamp from "@/_components/pages/home-page/slogan-stamp";
+import VideoHero from "@/_components/pages/home-page/video-hero";
+import WhatWeAreAbout from "@/_components/pages/home-page/what-we-are-about";
+import ImageContainer from "@/_components/utils/image-container";
+import ContactForm from "@/_components/contact/contact-form";
 
 const LazyContactMap = lazy(
-  () => import("@/app/_components/contact/contact-map")
+  () => import("@/_components/contact/contact-map")
 );
 
 export const metadata: Metadata = {
@@ -25,16 +25,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_ZA",
     siteName: "A&I Sheeting",
-    url: "https://www.roofrefub.co.za",
+    url: "https://www.roofrefurb.co.za",
     images: [
       {
-        url: "/assets/projects/avenge-2/DJI_0684.jpg",
+        url: "/images/projects/avenge-2/DJI_0684.jpg",
       },
       {
-        url: "/assets/projects/diesel-road/DJI_0636.jpg",
+        url: "/images/projects/diesel-road/DJI_0636.jpg",
       },
       {
-        url: "/assets/projects/jt-pics/DJI_0645.jpg",
+        url: "/images/projects/jt-pics/DJI_0645.jpg",
       },
     ],
   },
@@ -56,7 +56,7 @@ export default function Home() {
           <AboutUs />
         </div>
         <ImageContainer
-          src="/assets/projects/avenge-2/DJI_0701.jpg"
+          src="/images/projects/avenge-2/DJI_0701.jpg"
           alt="A&I Sheeting - What we're about"
           desktopWidth={1000}
           cssClasses="my-14 h-[250px] object-cover tablet:h-[300px]"

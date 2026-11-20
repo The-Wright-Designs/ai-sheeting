@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
-import Testimonials from "@/app/_components/pages/projects-page/testimonials";
-import ProjectsSlider from "@/app/_components/sliders/project-slider";
+import Testimonials from "@/_components/pages/projects-page/testimonials";
+import ProjectsSlider from "@/_components/sliders/project-slider";
 
-import pageData from "@/app/_data/page-data.json";
+import pageData from "@/_data/page-data.json";
 
 const { projectsPage } = pageData;
 
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     url: "https://www.roofrefub.co.za/projects",
     images: [
       {
-        url: "/assets/projects/avenge-2/DJI_0684.jpg",
+        url: "/images/projects/avenge-2/DJI_0684.jpg",
       },
     ],
   },

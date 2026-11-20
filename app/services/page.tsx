@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Metadata } from "next";
 
-import ImageContainer from "@/app/_components/utils/image-container";
+import ImageContainer from "@/_components/utils/image-container";
 
-import pageData from "@/app/_data/page-data.json";
+import pageData from "@/_data/page-data.json";
 
 const {
   servicesPage: { technologies, guide, articles },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     url: "https://www.roofrefub.co.za/services",
     images: [
       {
-        url: "/assets/projects/avenge-2/DJI_0684.jpg",
+        url: "/images/projects/avenge-2/DJI_0684.jpg",
       },
     ],
   },
@@ -47,7 +47,7 @@ const Services = () => {
             </ul>
           </article>
           <ImageContainer
-            src="/assets/projects/118/DJI_0496.jpg"
+            src="/images/projects/118/DJI_0496.jpg"
             alt="A&I Sheeting - State of the Art Technologies"
             desktopWidth={1200}
             cssClasses="h-[250px] tablet:h-[300px] tabletLarge:h-full object-cover my-10 tabletLarge:m-0"
@@ -72,7 +72,7 @@ const Services = () => {
             </ul>
           </article>
           <ImageContainer
-            src="/assets/projects/brackenfell-jt-ross-ct/IMG_2162.jpg"
+            src="/images/projects/brackenfell-jt-ross-ct/IMG_2162.jpg"
             alt="A&I Sheeting - Product/Service Guide"
             desktopWidth={1200}
             cssClasses="h-[250px] tablet:h-[300px] tabletLarge:h-full object-cover mt-10 tabletLarge:m-0"
@@ -99,7 +99,7 @@ const Services = () => {
           </ul>
         </article>
         <ImageContainer
-          src="/assets/projects/diesel-road/DJI_0636.jpg"
+          src="/images/projects/diesel-road/DJI_0636.jpg"
           alt="A&I Sheeting - Articles"
           desktopWidth={1200}
           cssClasses="hidden tablet:block tablet:h-[300px] object-cover my-10 tablet:m-0"

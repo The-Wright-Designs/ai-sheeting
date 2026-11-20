@@ -35,3 +35,11 @@ yarn-error.log*
 next-env.d.ts
 
 .unlighthouse
+HANDOVER-DOC.md
+
+# claude code
+_.local.md
+.claude
+CLAUDE.md
+
+HANDOVER-DOC.md

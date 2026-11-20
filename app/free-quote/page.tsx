@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
-import ContactForm from "@/app/_components/contact/contact-form";
-import ImageContainer from "@/app/_components/utils/image-container";
-import ClientSideImageComponent from "@/app/_components/pages/free-quote/client-side-image-component";
+import ContactForm from "@/_components/contact/contact-form";
+import ImageContainer from "@/_components/utils/image-container";
+import ClientSideImageComponent from "@/_components/pages/free-quote/client-side-image-component";
 
 export const metadata: Metadata = {
   title: "Free Roof Inspection Quote - A&I Sheeting",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: "https://www.roofrefub.co.za/free-quote",
     images: [
       {
-        url: "/assets/projects/old+website/IMG_1151.jpg",
+        url: "/images/projects/old-website/IMG_1151.jpg",
       },
     ],
   },
@@ -39,7 +39,7 @@ const FreeQuote = () => {
             <ClientSideImageComponent />
           </div>
           <ImageContainer
-            src="/assets/projects/old-website/IMG_1151.jpg"
+            src="/images/projects/old-website/IMG_1151.jpg"
             alt="A&I Sheeting - Free Roof Inspection Quote"
             desktopWidth={750}
             tabletWidth={750}

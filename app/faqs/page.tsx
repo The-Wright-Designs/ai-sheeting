@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Metadata } from "next";
 
-import ImageContainer from "@/app/_components/utils/image-container";
+import ImageContainer from "@/_components/utils/image-container";
 
-import pageData from "@/app/_data/page-data.json";
+import pageData from "@/_data/page-data.json";
 
 const { faqs } = pageData;
 
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     url: "https://www.roofrefub.co.za/faqs",
     images: [
       {
-        url: "/assets/projects/avenge-2/DJI_0684.jpg",
+        url: "/images/projects/avenge-2/DJI_0684.jpg",
       },
     ],
   },
@@ -43,7 +43,7 @@ const Faqs = () => {
           ))}
         </ul>
         <ImageContainer
-          src="/assets/DSC03266.jpg"
+          src="/images/DSC03266.jpg"
           alt="A&I Sheeting - FAQs"
           desktopWidth={800}
           cssClasses="h-full object-cover hidden tabletLarge:block"
