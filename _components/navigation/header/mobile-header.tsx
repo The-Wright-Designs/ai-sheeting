@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { TextAlignJustifyEnd, X } from "lucide-react";
 
 import ButtonLink from "@/_components/ui/buttons/button-link";
 
@@ -47,20 +47,22 @@ const MobileHeader = ({ cssClasses }: Props) => {
 
   return (
     <div ref={ref} className={cssClasses}>
-      <div className="flex items-center justify-between w-full pt-4 pb-5">
-        <Link href="/" className="shrink-0">
-          <Image
-            src="/logo/a&i-sheeting-logo-white.png"
-            alt="A&I Sheeting logo"
-            width={79}
-            height={52}
-            priority
-          />
-        </Link>
-        <p className="w-[137px] text-left text-[13px] text-white">
-          <span className="font-semibold text-white">50 Years</span> Of
-          Successful Roofing Solutions
-        </p>
+      <div className="flex gap-7 items-center justify-between w-full pt-4 pb-5">
+        <div className="flex gap-3 items-center flex-1">
+          <Link href="/" className="shrink-0">
+            <Image
+              src="/logo/a&i-sheeting-logo-white.png"
+              alt="A&I Sheeting logo"
+              width={79}
+              height={52}
+              priority
+            />
+          </Link>
+          <h2 className="w-[137px] font-light max-w-[160px] flex-1 text-left text-[13px] text-white leading-4.5">
+            <span className="font-semibold text-white">50 Years</span> Of
+            Successful Roofing Solutions
+          </h2>
+        </div>
         <button
           type="button"
           onClick={() => setMenuToggle((prev) => !prev)}
@@ -68,8 +70,9 @@ const MobileHeader = ({ cssClasses }: Props) => {
           aria-expanded={menuToggle}
           className="relative z-50 grid p-4 -m-4 desktop:hover:cursor-pointer"
         >
-          <Menu
-            size={24}
+          <TextAlignJustifyEnd
+            size={28}
+            strokeWidth={2.5}
             color="#FFFFFF"
             className={classNames(
               "col-start-1 row-start-1 transition-all duration-300 ease-in-out",
@@ -77,8 +80,9 @@ const MobileHeader = ({ cssClasses }: Props) => {
             )}
           />
           <X
-            size={24}
+            size={28}
             color="#FFFFFF"
+            strokeWidth={2.5}
             className={classNames(
               "col-start-1 row-start-1 transition-all duration-300 ease-in-out",
               menuToggle ? "opacity-100" : "opacity-0 -rotate-90 scale-75",

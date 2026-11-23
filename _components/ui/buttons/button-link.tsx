@@ -28,7 +28,7 @@ const ButtonLink = ({
     >
       <span className={buttonShadowStyles(primaryButton)} />
       <span className={buttonFaceStyles(disabled, false, primaryButton)}>
-        <span className="flex-1 text-center">{children}</span>
+        <span className="flex-1 text-center font-semibold">{children}</span>
         <ChevronRight size={16} color={buttonIconColor(primaryButton)} />
       </span>
     </Link>

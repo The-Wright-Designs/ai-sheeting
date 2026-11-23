@@ -20,15 +20,18 @@ const Footer = ({ cssClasses }: Props) => {
       <div className="flex flex-col items-center gap-5 w-full max-w-[1280px] mx-auto desktop:gap-3">
         <div className="flex items-center justify-between w-full desktop:gap-5">
           <nav className="hidden desktop:block">
-            <ul className="list-none m-0 flex flex-col gap-[2px]">
+            <ul className="list-none m-0">
               {navList.map(({ title, url }, index) => (
-                <li key={index}>
+                <li key={index} className="leading-4.75">
                   <Link
                     href={url}
-                    className={classNames("text-[12px] text-blue text-left", {
-                      "font-light": title !== "Get A Free Roof Inspection",
-                      "font-semibold": title === "Get A Free Roof Inspection",
-                    })}
+                    className={classNames(
+                      "text-[12px] text-blue text-left desktop:hover:underline ease-in-out duration-300 underline-offset-4",
+                      {
+                        "font-light": title !== "Get A Free Roof Inspection",
+                        "font-semibold": title === "Get A Free Roof Inspection",
+                      },
+                    )}
                   >
                     {title}
                   </Link>
@@ -56,11 +59,13 @@ const Footer = ({ cssClasses }: Props) => {
         <div className="text-center desktop:flex desktop:justify-center">
           <p className="text-[14px] font-light text-blue text-center">
             © A&I Sheeting
-            <span className="hidden desktop:inline text-blue">&nbsp;|&nbsp;</span>
+            <span className="hidden desktop:inline text-blue">
+              &nbsp;|&nbsp;
+            </span>
           </p>
           <Link
             href="https://www.roofrefurb.co.za"
-            className="block text-[14px] font-light text-blue text-center"
+            className="block text-[14px] font-light text-blue text-center desktop:hover:underline underline-offset-4 ease-in-out duration-300"
           >
             www.roofrefurb.co.za
           </Link>

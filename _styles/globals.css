@@ -14,7 +14,7 @@
   /* Font Sizes with Weights (compound properties) */
   --text-heading: 2rem;
   --text-heading--font-weight: 700;
-  --text-heading--line-height: 1;
+  --text-heading--line-height: 1.4;
   --text-subheading: 1.125rem;
   --text-subheading--font-weight: 600;
   --text-subheading--line-height: 1;
@@ -39,7 +39,6 @@
     font-size: 16px;
     font-weight: 300;
     color: #1E1E1E;
-    text-align: justify;
   }
 
   body {

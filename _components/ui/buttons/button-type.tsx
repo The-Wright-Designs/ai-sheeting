@@ -39,7 +39,7 @@ const ButtonType = ({
           </span>
         ) : (
           <>
-            <span className="flex-1 text-center">{children}</span>
+            <span className="flex-1 text-center font-semibold">{children}</span>
             <ChevronRight size={16} color={buttonIconColor(primaryButton)} />
           </>
         )}

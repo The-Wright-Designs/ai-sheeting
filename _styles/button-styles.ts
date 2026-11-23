@@ -25,7 +25,7 @@ export const buttonFaceStyles = (
   primaryButton?: boolean,
 ) =>
   classNames(
-    "relative flex w-full items-center justify-between gap-3 rounded-2xl px-5 py-[18px] text-[15px] font-semibold ease-out duration-200 transition-transform",
+    "relative flex w-full items-center justify-between gap-3 rounded-2xl px-5 py-[12px] text-[15px] font-semibold ease-out duration-200 transition-transform",
     {
       "bg-blue text-white": primaryButton,
       "bg-skyBlue text-blue": !primaryButton,

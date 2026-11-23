@@ -23,7 +23,10 @@ const DesktopHeader = ({ cssClasses }: Props) => {
       )}
     >
       <div className="flex flex-1 items-center gap-5">
-        <Link href="/" className="shrink-0">
+        <Link
+          href="/"
+          className="shrink-0 hover:opacity-95 ease-in-out duration-300"
+        >
           <Image
             src="/logo/a&i-sheeting-logo-white.png"
             alt="A&I Sheeting logo"
@@ -33,12 +36,12 @@ const DesktopHeader = ({ cssClasses }: Props) => {
           />
         </Link>
         <div className="w-[145px] text-left">
-          <p className="text-[22px] font-semibold text-white text-left">
+          <h2 className="text-[22px] flex flex-col font-semibold text-white text-left leading-6.5">
             50 Years
-          </p>
-          <p className="text-[18px] font-light text-white text-left">
-            Of Successful Roofing Solutions
-          </p>
+            <span className="text-[18px] font-light text-white text-left">
+              Of Successful Roofing Solutions
+            </span>
+          </h2>
         </div>
       </div>
       <nav>
