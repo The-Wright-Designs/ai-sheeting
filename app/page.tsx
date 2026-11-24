@@ -1,4 +1,7 @@
+import AboutComponent from "@/_components/pages/home-page/about-component";
 import HeroComponent from "@/_components/pages/home-page/hero-component";
+import ServicesComponent from "@/_components/pages/home-page/services-component";
+import PageWrapper from "@/_lib/utils/page-wrapper";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -31,6 +34,10 @@ export default function Home() {
   return (
     <div>
       <HeroComponent />
+      <PageWrapper>
+        <ServicesComponent />
+        <AboutComponent />
+      </PageWrapper>
     </div>
   );
 }

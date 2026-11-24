@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { TextAlignJustifyEnd, X } from "lucide-react";
+import { ChevronRight, TextAlignJustifyEnd, X } from "lucide-react";
 
 import ButtonLink from "@/_components/ui/buttons/button-link";
 
@@ -47,7 +47,7 @@ const MobileHeader = ({ cssClasses }: Props) => {
 
   return (
     <div ref={ref} className={cssClasses}>
-      <div className="flex gap-7 items-center justify-between w-full pt-4 pb-5">
+      <div className="flex gap-5 items-center justify-between w-full pt-4 pb-5">
         <div className="flex gap-3 items-center flex-1">
           <Link href="/" className="shrink-0">
             <Image
@@ -94,28 +94,31 @@ const MobileHeader = ({ cssClasses }: Props) => {
         inert={!menuToggle}
         aria-hidden={!menuToggle}
         className={classNames(
-          "fixed top-0 right-0 z-40 h-screen w-3/4 phone:w-3/5 bg-blue overflow-hidden transition-transform duration-500 ease-in-out",
+          "fixed top-0 right-0 z-40 h-screen w-full min-[400px]:w-3/4 bg-blue/98 overflow-hidden transition-transform duration-500 ease-in-out",
           menuToggle ? "translate-x-0" : "translate-x-full",
         )}
       >
-        <ul className="list-none m-0 grid gap-7 px-8 pt-24">
+        <ul className="list-none m-0 grid gap-3.5 px-8 pt-24">
           {navList.map(({ title, url }, index) => (
             <li key={index} className="text-left">
               {title === "Get A Free Roof Inspection" ? (
-                <ButtonLink
+                <Link
                   href={url}
                   onClick={() => setMenuToggle(false)}
-                  cssClasses="w-full"
+                  className="text-[16px] font-normal text-white p-2 -m-2 mt-2 flex items-center gap-2"
                 >
                   {title}
-                </ButtonLink>
+                  <ChevronRight size={22} strokeWidth={2.25} color="white" />
+                </Link>
               ) : (
                 <Link
                   href={url}
-                  className={classNames("text-[20px] font-light text-white", {
-                    "underline underline-offset-8 decoration-2 font-semibold":
-                      pathName === url,
-                  })}
+                  className={classNames(
+                    "text-[16px] font-light text-white p-2 -m-2",
+                    {
+                      "font-semibold": pathName === url,
+                    },
+                  )}
                   onClick={() => setMenuToggle(false)}
                 >
                   {title}

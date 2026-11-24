@@ -1,0 +1,21 @@
+{
+  "homePage": {
+    "services": [
+      {
+        "title": "Roof & structure",
+        "icon": "Roof",
+        "items": ["Roofing", "Roofing Systems", "Refurbishment", "Asbestos removal"]
+      },
+      {
+        "title": "Protection & finishes",
+        "icon": "Paintbrush",
+        "items": ["Waterproofing", "Insulation", "Chromadek", "Industrial Roof Coating"]
+      },
+      {
+        "title": "Repairs & care",
+        "icon": "Wrench",
+        "items": ["Leaks", "Gutters", "Remedial Solutions", "Gutter Maintenance"]
+      }
+    ]
+  }
+}

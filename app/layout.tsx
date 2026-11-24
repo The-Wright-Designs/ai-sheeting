@@ -42,11 +42,7 @@ export default function RootLayout({ children }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Header />
-        <div className="mx-5 max-w-[1400px] tabletLarge:mx-10 desktop:mx-auto">
-          <RecaptchaProvider>
-            {children}
-          </RecaptchaProvider>
-        </div>
+        <RecaptchaProvider>{children}</RecaptchaProvider>
         <Footer />
       </body>
     </html>
