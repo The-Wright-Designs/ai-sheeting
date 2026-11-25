@@ -2,6 +2,7 @@
 
 import { useFormStatus } from "react-dom";
 import { ChevronRight } from "lucide-react";
+import classNames from "classnames";
 import { ButtonProps } from "@/_types/button-types";
 import {
   buttonFaceStyles,
@@ -34,12 +35,19 @@ const ButtonType = ({
       <span className={buttonShadowStyles(primaryButton)} />
       <span className={buttonFaceStyles(disabled, pending, primaryButton)}>
         {pending && type === "submit" ? (
-          <span className="flex flex-1 items-center justify-center">
+          <span className="flex flex-1 py-0.5 items-center justify-center">
             <span className="spinner"></span>
           </span>
         ) : (
           <>
-            <span className="flex-1 text-center font-semibold">{children}</span>
+            <span
+              className={classNames(
+                "flex-1 text-center font-semibold",
+                primaryButton ? "text-white" : "text-blue",
+              )}
+            >
+              {children}
+            </span>
             <ChevronRight size={16} color={buttonIconColor(primaryButton)} />
           </>
         )}

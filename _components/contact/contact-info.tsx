@@ -1,11 +1,8 @@
-"use client";
+import classNames from "classnames";
 
-import Link from "next/link";
-import { useState } from "react";
-
-import pageData from "@/_data/page-data.json";
-import { showEmailAddress, showPhoneNumbers } from "@/_actions/contact-info-actions";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import generalData from "@/_data/general-data.json";
+import ShowEmailAddress from "@/_components/ui/contact/show-email-address";
+import ShowPhoneNumber from "@/_components/ui/contact/show-phone-number";
 
 interface Props {
   cssClasses?: string;
@@ -13,93 +10,43 @@ interface Props {
 
 const {
   homePage: {
-    contactUs: { address },
+    contactUs: { phones, address },
   },
-} = pageData;
+} = generalData;
+
+const cardClasses =
+  "flex flex-col items-start gap-2 rounded-2xl bg-white p-4 min-[1000px]:flex-row min-[1000px]:rounded-xl";
 
 const ContactInfo = ({ cssClasses }: Props) => {
-  const [showPhone1, setShowPhone1] = useState("");
-  const [showPhone2, setShowPhone2] = useState("");
-  const [showEmail, setShowEmail] = useState("");
-  const { executeRecaptcha } = useGoogleReCaptcha();
-
-  const getToken = async () =>
-    executeRecaptcha ? await executeRecaptcha("contact_info") : "";
-
   return (
-    <div className={`grid gap-10 ${cssClasses}`}>
-      <h2 className="tabletLarge:text-left">Contact Us</h2>
-      <ul className="flex flex-col gap-7 tabletLarge:gap-4 m-0">
-        <li className="grid grid-cols-[110px_1fr]">
-          <p className="font-500">Phone:</p>
-          {!showPhone1 ? (
-            <p
-              className="italic p-3 -m-3 text-linkBlue tabletLarge:hover:cursor-pointer tabletLarge:hover:text-orange tabletLarge:p-0 tabletLarge:m-0"
-              onClick={async () => {
-                const data = await showPhoneNumbers(await getToken());
-                setShowPhone1(data.phone1);
-              }}
-            >
-              Show phone number
-            </p>
-          ) : (
-            <Link
-              href={`tel:${showPhone1}`}
-              className="p-3 -m-3 tabletLarge:p-0 tabletLarge:m-0"
-            >
-              {showPhone1}
-            </Link>
-          )}
-        </li>
-        <li className="grid grid-cols-[110px_1fr]">
-          <p className="font-500">Alt. Phone:</p>
-          {!showPhone2 ? (
-            <p
-              className="italic p-3 -m-3 text-linkBlue tabletLarge:hover:cursor-pointer tabletLarge:hover:text-orange tabletLarge:p-0 tabletLarge:m-0"
-              onClick={async () => {
-                const data = await showPhoneNumbers(await getToken());
-                setShowPhone2(data.phone2);
-              }}
-            >
-              Show phone number
-            </p>
-          ) : (
-            <Link
-              href={`tel:${showPhone2}`}
-              className="p-3 -m-3 tabletLarge:p-0 tabletLarge:m-0"
-            >
-              {showPhone2}
-            </Link>
-          )}
-        </li>
-
-        <li className="grid grid-cols-[110px_1fr]">
-          <p className="font-500">Email:</p>
-          {!showEmail ? (
-            <p
-              className="italic p-3 -m-3 text-linkBlue tabletLarge:hover:cursor-pointer tabletLarge:hover:text-orange tabletLarge:p-0 tabletLarge:m-0"
-              onClick={async () => {
-                const email = await showEmailAddress(await getToken());
-                setShowEmail(email);
-              }}
-            >
-              Show email address
-            </p>
-          ) : (
-            <Link
-              href={`mailto:${showEmail}`}
-              className="p-3 -m-3 tabletLarge:p-0 tabletLarge:m-0"
-            >
-              {showEmail}
-            </Link>
-          )}
-        </li>
-
-        <li className="grid grid-cols-[110px_1fr]">
-          <p className="font-500">Address:</p>
-          <address className="text-left">{address}</address>
-        </li>
-      </ul>
+    <div
+      className={classNames(
+        "flex flex-col gap-5 min-[600px]:grid min-[600px]:grid-cols-2 min-[1000px]:grid-cols-3 min-[1000px]:gap-10",
+        cssClasses,
+      )}
+    >
+      <div className={cardClasses}>
+        <p className="font-semibold">Phone:</p>
+        <div className="flex flex-col items-start gap-2">
+          {phones.map((_, index) => (
+            <div key={index} className="flex gap-2">
+              <ShowPhoneNumber index={index} />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className={cardClasses}>
+        <p className="font-semibold">Email:</p>
+        <ShowEmailAddress />
+      </div>
+      <div className={classNames(cardClasses, "min-[600px]:col-span-2 min-[1000px]:col-span-1")}>
+        <p className="font-semibold">Address:</p>
+        <address className="not-italic">
+          {address.map((line) => (
+            <p key={line}>{line}</p>
+          ))}
+        </address>
+      </div>
     </div>
   );
 };

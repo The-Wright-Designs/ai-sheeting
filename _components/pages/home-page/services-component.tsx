@@ -8,7 +8,7 @@ const icons = { Paintbrush, Wrench };
 
 const ServicesComponent = () => {
   return (
-    <section className="flex flex-col gap-10 py-15">
+    <section id="services" className="flex flex-col gap-10 py-15 -scroll-mt-5">
       <Heading>Services</Heading>
       <div className="flex flex-col gap-8 tablet:grid tablet:grid-cols-3">
         {generalData.homePage.services.map((service, index) => {

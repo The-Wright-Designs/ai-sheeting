@@ -12,6 +12,7 @@ const libraries: "marker"[] = ["marker"];
 const position = { lat: -26.1518844, lng: 28.0893148 };
 
 const ContactMap = ({ cssClasses }: Props) => {
+  const mapRef = useRef<google.maps.Map | null>(null);
   const markerRef = useRef<google.maps.marker.AdvancedMarkerElement | null>(
     null,
   );
@@ -23,10 +24,17 @@ const ContactMap = ({ cssClasses }: Props) => {
 
   const onMapLoad = useCallback((map: google.maps.Map) => {
     try {
-      if (window.google?.maps?.marker?.AdvancedMarkerElement) {
+      mapRef.current = map;
+      if (
+        window.google &&
+        window.google.maps &&
+        window.google.maps.marker &&
+        window.google.maps.marker.AdvancedMarkerElement
+      ) {
         markerRef.current = new google.maps.marker.AdvancedMarkerElement({
           map,
           position,
+          title: "A&I Sheeting",
         });
       }
     } catch (error) {
@@ -35,32 +43,51 @@ const ContactMap = ({ cssClasses }: Props) => {
   }, []);
 
   const onUnmount = useCallback(() => {
-    if (markerRef.current) {
-      markerRef.current.map = null;
-      markerRef.current = null;
+    try {
+      if (markerRef.current) {
+        markerRef.current.map = null;
+        markerRef.current = null;
+      }
+      mapRef.current = null;
+    } catch (error) {
+      console.error("Error unmounting map:", error);
     }
   }, []);
 
-  if (loadError || !isLoaded || !window.google?.maps)
+  if (loadError) {
     return (
       <div
         className={classNames(
-          "border-2 border-black text-[30px] grid place-items-center py-16 w-full h-full",
+          "grid h-full w-full place-items-center bg-skyBlue py-16",
           cssClasses,
         )}
       >
-        {loadError ? "Error loading map" : "Map loading..."}
+        <p className="text-heading text-blue">Error loading map</p>
       </div>
     );
+  }
+
+  if (!isLoaded || !window.google || !window.google.maps) {
+    return (
+      <div
+        className={classNames(
+          "grid h-full w-full place-items-center bg-skyBlue py-16",
+          cssClasses,
+        )}
+      >
+        <p className="text-heading text-blue">Map loading...</p>
+      </div>
+    );
+  }
 
   return (
     <GoogleMap
-      zoom={13}
+      zoom={16}
       center={position}
       mapContainerClassName={cssClasses}
       onLoad={onMapLoad}
       onUnmount={onUnmount}
-      options={{ mapId: "DEMO_MAP_ID" }}
+      options={{ mapId: "698d62123be3d858eceeb3f1" }}
     />
   );
 };

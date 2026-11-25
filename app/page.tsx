@@ -1,4 +1,5 @@
 import AboutComponent from "@/_components/pages/home-page/about-component";
+import ContactComponent from "@/_components/pages/home-page/contact-component";
 import HeroComponent from "@/_components/pages/home-page/hero-component";
 import ServicesComponent from "@/_components/pages/home-page/services-component";
 import PageWrapper from "@/_lib/utils/page-wrapper";
@@ -38,6 +39,7 @@ export default function Home() {
         <ServicesComponent />
         <AboutComponent />
       </PageWrapper>
+      <ContactComponent />
     </div>
   );
 }

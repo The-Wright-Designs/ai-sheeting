@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const AboutComponent = () => {
   return (
-    <section id="about-us" className="flex flex-col gap-10 pb-15">
+    <section id="about-us" className="flex flex-col gap-10 pb-15 scroll-mt-10">
       <Heading>About Us</Heading>
       <div className="grid gap-5 min-[1000px]:grid-cols-2 min-[1000px]:gap-x-10">
         <h3 className="font-semibold text-blue">

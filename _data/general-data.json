@@ -16,6 +16,11 @@
         "icon": "Wrench",
         "items": ["Leaks", "Gutters", "Remedial Solutions", "Gutter Maintenance"]
       }
-    ]
+    ],
+    "contactUs": {
+      "phones": ["+27 11 485 1782", "+27 11 485 1783"],
+      "email": "info@roofrefurb.co.za",
+      "address": ["61 Hathorn Avenue,", "Rouxville,", "Johannesburg"]
+    }
   }
 }
